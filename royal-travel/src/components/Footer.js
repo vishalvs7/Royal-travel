@@ -7,16 +7,15 @@ import Link from 'next/link';
 const footerLinks = {
   QuickLinks: [
     { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/#about' },
-    { name: 'Services', href: '/#services' },
-    { name: 'Destinations', href: '/#destinations' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'About Us', href: '#about' },
+    { name: 'Services', href: '#services' },
+    { name: 'Destinations', href: '#destinations' },
+    { name: 'Contact', href: '#contact' },
   ],
   Packages: [
     { name: 'International Packages', href: '/packages/international' },
     { name: 'Domestic Packages', href: '/packages/domestic' },
-    { name: 'Corporate Travel', href: '/#services' },
-    { name: 'Custom Itineraries', href: '/#contact' },
+    { name: 'Custom Itineraries', href: '#contact' },
   ],
   Support: [
     { name: 'FAQs', href: '#' },
@@ -44,7 +43,7 @@ export default function Footer() {
                 <a
                   key={s}
                   href="#"
-                  className="h-9 w-9 rounded-full border border-white/10 flex items-center justify-center text-xs text-muted-foreground hover:text-white hover:border-white/30 transition-all"
+                  className="h-9 w-9 rounded-[4px] border border-white/10 flex items-center justify-center text-xs text-muted-foreground hover:text-white hover:border-white/30 transition-all"
                 >
                   {s}
                 </a>

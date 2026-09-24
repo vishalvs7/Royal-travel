@@ -49,7 +49,7 @@ export default function Packages() {
       <div className="container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs uppercase tracking-[0.2em] text-secondary font-semibold">Packages</span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-6">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mt-4 mb-6">
             Featured{' '}
             <span className="text-gradient">Travel Packages</span>
           </h2>
@@ -64,7 +64,7 @@ export default function Packages() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="group rounded-2xl border border-white/10 bg-card overflow-hidden hover:border-white/20 transition-all duration-300"
+              className="group rounded-[4px] border border-white/10 bg-card overflow-hidden hover:border-white/20 transition-all duration-300"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <div
@@ -72,7 +72,7 @@ export default function Packages() {
                   style={{ backgroundImage: `url('${pkg.image}')` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <span className={`absolute top-3 right-3 rounded-full px-3 py-1 text-xs font-semibold backdrop-blur-sm ${pkg.type === 'International' ? 'bg-secondary text-white' : 'bg-primary text-primary-foreground'}`}>
+                <span className={`absolute top-3 right-3 rounded-[4px] px-3 py-1 text-xs font-semibold backdrop-blur-sm ${pkg.type === 'International' ? 'bg-secondary text-white' : 'bg-primary text-primary-foreground'}`}>
                   {pkg.type}
                 </span>
               </div>
@@ -93,7 +93,7 @@ export default function Packages() {
           ))}
         </div>
         <div className="text-center mt-10">
-          <Link href="/packages/international" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-all">
+          <Link href="/packages/international" className="inline-flex items-center gap-2 rounded-[4px] border border-white/20 px-8 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-all">
             View All Packages <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

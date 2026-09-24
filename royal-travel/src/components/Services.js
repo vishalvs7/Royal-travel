@@ -48,7 +48,7 @@ export default function Services() {
       <div className="container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs uppercase tracking-[0.2em] text-secondary font-semibold">Our Services</span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-6">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mt-4 mb-6">
             End-to-End{' '}
             <span className="text-gradient">Travel Solutions</span>
           </h2>
@@ -56,19 +56,19 @@ export default function Services() {
             From flight bookings to ground handling, we manage every detail of your journey.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="group relative rounded-2xl border border-white/10 bg-card p-6 hover:border-white/20 transition-all duration-300"
+              className="group relative rounded-[16px] border border-white/10 glass p-8 hover:border-white/20 shadow-lg shadow-black/20 transition-all duration-300"
             >
-              <div className={`h-12 w-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4`}>
-                <service.icon className="h-6 w-6 text-white" />
+              <div className={`h-14 w-14 rounded-[16px] bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6`}>
+                <service.icon className="h-7 w-7 text-white" />
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">{service.title}</h3>
+              <h3 className="text-lg font-semibold text-white mb-3">{service.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{service.desc}</p>
             </motion.div>
           ))}

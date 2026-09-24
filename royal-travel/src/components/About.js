@@ -17,7 +17,7 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <div>
             <span className="text-xs uppercase tracking-[0.2em] text-secondary font-semibold">About Us</span>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-6 leading-tight">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mt-4 mb-6 leading-tight">
               Crafting Unforgettable Journeys Since{' '}
               <span className="text-gradient">2012</span>
             </h2>
@@ -32,19 +32,14 @@ export default function About() {
             </p>
           </div>
           <div className="relative">
-            <div className="aspect-[4/3] rounded-3xl overflow-hidden">
+            <div className="aspect-[4/3] rounded-[4px] overflow-hidden">
               <div
                 className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: `url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021')` }}
+                style={{ backgroundImage: `url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070')` }}
               />
-            </div>
-            <div className="absolute -bottom-6 -left-6 rounded-2xl glass border border-white/10 px-6 py-4 shadow-xl">
-              <p className="text-3xl font-bold text-white">100+</p>
-              <p className="text-sm text-muted-foreground">Travel Experts</p>
             </div>
           </div>
         </div>
-
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((stat, i) => (
             <motion.div
@@ -52,7 +47,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="text-center rounded-2xl border border-white/10 bg-card/50 p-6"
+              className="text-center rounded-[4px] border border-white/10 bg-card/50 p-6"
             >
               <stat.icon className="h-8 w-8 mx-auto text-secondary mb-3" />
               <p className="text-3xl sm:text-4xl font-bold text-white mb-1">{stat.value}</p>

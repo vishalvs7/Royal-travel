@@ -32,7 +32,7 @@ export default function Experience() {
       <div className="container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs uppercase tracking-[0.2em] text-secondary font-semibold">How It Works</span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-6">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mt-4 mb-6">
             Your Journey,{' '}
             <span className="text-gradient">Simplified</span>
           </h2>
@@ -47,7 +47,7 @@ export default function Experience() {
               transition={{ delay: i * 0.15 }}
               className="relative text-center"
             >
-              <div className="relative z-10 mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-card border border-white/10 shadow-xl">
+              <div className="relative z-10 mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-[4px] bg-card border border-white/10 shadow-xl">
                 <span className="font-display text-2xl font-bold text-gradient">{item.step}</span>
               </div>
               <CheckCircle2 className="h-5 w-5 mx-auto text-secondary mb-3" />

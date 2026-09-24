@@ -77,7 +77,7 @@ export default function InternationalPackages() {
         <div className="container mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs uppercase tracking-[0.2em] text-secondary font-semibold">International</span>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-6">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mt-4 mb-6">
               Explore the{' '}
               <span className="text-gradient">World</span>
             </h1>
@@ -92,7 +92,7 @@ export default function InternationalPackages() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="group rounded-2xl border border-white/10 bg-card overflow-hidden hover:border-white/20 transition-all duration-300"
+                className="group rounded-[4px] border border-white/10 bg-card overflow-hidden hover:border-white/20 transition-all duration-300"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <div
@@ -100,10 +100,10 @@ export default function InternationalPackages() {
                     style={{ backgroundImage: `url('${pkg.image}')` }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute top-3 right-3 flex items-center gap-1 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm">
+                  <div className="absolute top-3 right-3 flex items-center gap-1 rounded-[4px] bg-white/95 px-3 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm">
                     <Star className="h-3 w-3 fill-amber-400 text-amber-400" /> {pkg.rating}
                   </div>
-                  <div className="absolute bottom-3 left-3 flex items-center gap-1 text-xs text-white/80 bg-black/40 rounded-full px-3 py-1 backdrop-blur-sm">
+                  <div className="absolute bottom-3 left-3 flex items-center gap-1 text-xs text-white/80 bg-black/40 rounded-[4px] px-3 py-1 backdrop-blur-sm">
                     <MapPin className="h-3 w-3" /> {pkg.location}
                   </div>
                 </div>
@@ -115,10 +115,10 @@ export default function InternationalPackages() {
                   </div>
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {pkg.highlights.slice(0, 3).map((h) => (
-                      <span key={h} className="rounded-full bg-white/10 px-2.5 py-0.5 text-xs text-white/70">{h}</span>
+                      <span key={h} className="rounded-[4px] bg-white/10 px-2.5 py-0.5 text-xs text-white/70">{h}</span>
                     ))}
                     {pkg.highlights.length > 3 && (
-                      <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-xs text-white/70">+{pkg.highlights.length - 3} more</span>
+                      <span className="rounded-[4px] bg-white/10 px-2.5 py-0.5 text-xs text-white/70">+{pkg.highlights.length - 3} more</span>
                     )}
                   </div>
                   <div className="flex items-center justify-between pt-3 border-t border-white/10">
