@@ -83,11 +83,10 @@ export default function Hero() {
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
           }}
-        >
-          <div className="absolute inset-0 bg-black/70" />
-        </motion.div>
+        />
       </AnimatePresence>
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/20 via-transparent to-black/70" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-tr from-black/60 via-black/25 to-transparent" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent to-black/60" />
       <div className="container relative z-20 mx-auto px-6 pt-32 pb-20">
         <AnimatePresence mode="wait">
           <motion.div

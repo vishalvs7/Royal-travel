@@ -89,6 +89,7 @@ export default function PopupForm() {
                   name="name"
                   placeholder="Your Name"
                   required
+                  suppressHydrationWarning
                   className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                 />
                 <input
@@ -96,6 +97,7 @@ export default function PopupForm() {
                   name="email"
                   placeholder="Your Email"
                   required
+                  suppressHydrationWarning
                   className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                 />
               </div>
@@ -103,10 +105,12 @@ export default function PopupForm() {
                 type="text"
                 name="phone"
                 placeholder="Phone Number"
+                suppressHydrationWarning
                 className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
               />
               <select
                 name="interest"
+                suppressHydrationWarning
                 className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
               >
                 <option value="">I&apos;m interested in...</option>
@@ -119,6 +123,7 @@ export default function PopupForm() {
                 rows={4}
                 name="message"
                 placeholder="Tell us about your dream trip..."
+                suppressHydrationWarning
                 className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
               />
               <div className="flex items-center gap-4 text-sm text-muted-foreground">

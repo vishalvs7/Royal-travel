@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -23,6 +24,10 @@ const navLinks = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const pathname = usePathname();
+  const onHome = pathname === '/';
+  const toHref = (href) =>
+    href.startsWith('#') && href !== '#' && !onHome ? `/${href}` : href;
 
   return (
     <nav className="fixed inset-x-0 top-0 z-50 bg-[hsl(var(--background)/.9)] backdrop-blur-xl shadow-[0_1px_15px_-3px_rgba(0,0,0,0.4)] border-b border-white/5">
@@ -61,7 +66,7 @@ export default function Navbar() {
               ) : (
                 <Link
                   key={link.name}
-                  href={link.href}
+                  href={toHref(link.href)}
                   className="px-3 py-2 text-base text-white/80 hover:text-white transition-colors rounded-[4px] hover:bg-white/10"
                 >
                   {link.name}
@@ -116,7 +121,7 @@ export default function Navbar() {
               ) : (
                 <Link
                   key={link.name}
-                  href={link.href}
+                  href={toHref(link.href)}
                   className="px-3 py-2.5 text-base text-white/80 hover:text-white rounded-[4px]"
                   onClick={() => setMenuOpen(false)}
                 >

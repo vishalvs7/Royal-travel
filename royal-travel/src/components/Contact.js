@@ -122,6 +122,7 @@ export default function Contact() {
                 name="name"
                 placeholder="Your Name"
                 required
+                suppressHydrationWarning
                 className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
               />
               <input
@@ -129,6 +130,7 @@ export default function Contact() {
                 name="email"
                 placeholder="Your Email"
                 required
+                suppressHydrationWarning
                 className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
               />
             </div>
@@ -136,10 +138,12 @@ export default function Contact() {
               type="text"
               name="phone"
               placeholder="Phone Number"
+              suppressHydrationWarning
               className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
             />
             <select
               name="interest"
+              suppressHydrationWarning
               className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
             >
               <option value="">I&apos;m interested in...</option>
@@ -152,6 +156,7 @@ export default function Contact() {
               rows={4}
               name="message"
               placeholder="Tell us about your dream trip..."
+              suppressHydrationWarning
               className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
             />
             <button

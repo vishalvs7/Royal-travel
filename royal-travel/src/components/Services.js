@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Plane, Building2, Ship, Car, Map, Shield } from 'lucide-react';
+import { Plane, Building2, Ship, Car, Map, Shield, BookUser, Stamp, Banknote } from 'lucide-react';
 
 const services = [
   {
@@ -39,6 +39,24 @@ const services = [
     title: 'Travel Insurance',
     desc: 'Comprehensive coverage for worry-free travel.',
     gradient: 'from-rose-400 to-rose-500',
+  },
+  {
+    icon: BookUser,
+    title: 'Passport Assistance',
+    desc: 'Support for new applications, renewals and document verification.',
+    gradient: 'from-indigo-400 to-indigo-500',
+  },
+  {
+    icon: Stamp,
+    title: 'Visa Service',
+    desc: 'Tourist and business visa processing for destinations worldwide.',
+    gradient: 'from-teal-400 to-teal-500',
+  },
+  {
+    icon: Banknote,
+    title: 'Forex Assistance',
+    desc: 'Foreign currency, travel cards and hassle-free forex exchange.',
+    gradient: 'from-orange-400 to-orange-500',
   },
 ];
 
