@@ -7,16 +7,44 @@ import { X, Send, Phone, Mail, MapPin, Loader2 } from 'lucide-react';
 export default function PopupForm() {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setOpen(true), 5000);
     return () => clearTimeout(timer);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+
     setLoading(true);
-    setTimeout(() => { setLoading(false); setOpen(false); }, 1500);
+    setStatus(null);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...data, source: 'Popup Form' }),
+      });
+      const result = await res.json().catch(() => ({}));
+
+      if (res.ok && result.ok) {
+        form.reset();
+        setStatus({ type: 'success', text: 'Thanks! Your message has been sent.' });
+        setTimeout(() => {
+          setStatus(null);
+          setOpen(false);
+        }, 1800);
+      } else {
+        setStatus({ type: 'error', text: result.error || 'Something went wrong. Please try again.' });
+      }
+    } catch {
+      setStatus({ type: 'error', text: 'Network error. Please try again.' });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -58,12 +86,14 @@ export default function PopupForm() {
               <div className="grid sm:grid-cols-2 gap-4">
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your Name"
                   required
                   className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                 />
                 <input
                   type="email"
+                  name="email"
                   placeholder="Your Email"
                   required
                   className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
@@ -71,10 +101,14 @@ export default function PopupForm() {
               </div>
               <input
                 type="text"
+                name="phone"
                 placeholder="Phone Number"
                 className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
               />
-              <select className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
+              <select
+                name="interest"
+                className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              >
                 <option value="">I&apos;m interested in...</option>
                 <option>International Packages</option>
                 <option>Domestic Packages</option>
@@ -83,12 +117,13 @@ export default function PopupForm() {
               </select>
               <textarea
                 rows={4}
+                name="message"
                 placeholder="Tell us about your dream trip..."
                 className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
               />
               <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <span className="flex items-center gap-2"><Phone className="h-4 w-4 text-secondary" /> +91 99999 99999</span>
-                <span className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary" /> info@royaltravel.com</span>
+                <span className="flex items-center gap-2"><Phone className="h-4 w-4 text-secondary" /> 011-41666677 , +91 98990 10227</span>
+                <span className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary" /> royaltravel111@gmail.com</span>
               </div>
               <button
                 type="submit"
@@ -107,6 +142,14 @@ export default function PopupForm() {
                   </>
                 )}
               </button>
+              {status && (
+                <p
+                  role="status"
+                  className={`text-sm ${status.type === 'success' ? 'text-green-400' : 'text-red-400'}`}
+                >
+                  {status.text}
+                </p>
+              )}
             </form>
           </motion.div>
         </motion.div>

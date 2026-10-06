@@ -2,71 +2,115 @@
 
 import { motion } from 'framer-motion';
 import { Clock, Users, ArrowRight, MapPin, Star } from 'lucide-react';
-import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
 const domesticPackages = [
   {
-    title: 'Kerala Backwaters Retreat',
-    duration: '5 Days / 4 Nights',
-    groupSize: 'Up to 8',
-    price: '₹35,000',
-    location: 'Kerala',
-    rating: 4.9,
-    image: 'https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=2069',
-    highlights: ['Houseboat stay', 'Kerala cuisine tour', 'Ayurveda spa', 'Tea plantation visit'],
-  },
-  {
-    title: 'Ladakh Adventure Expedition',
-    duration: '8 Days / 7 Nights',
-    groupSize: 'Up to 10',
-    price: '₹55,000',
-    location: 'Ladakh',
-    rating: 4.8,
-    image: 'https://images.unsplash.com/photo-1602513792193-1c42f9511bef?q=80&w=2070',
-    highlights: ['Khardung La pass', 'Pangong Lake', 'Monastery tours', 'Camping under stars'],
-  },
-  {
-    title: 'Goa Beach Holiday',
+    title: 'Goa – North & South Goa',
     duration: '4 Days / 3 Nights',
-    groupSize: 'Up to 6',
-    price: '₹22,000',
+    price: '₹11,999',
     location: 'Goa',
-    rating: 4.7,
     image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=2074',
-    highlights: ['Beach resorts', 'Water sports', 'Sunset cruise', 'Portuguese heritage walk'],
   },
   {
-    title: 'Rajasthan Royal Heritage',
-    duration: '7 Days / 6 Nights',
-    groupSize: 'Up to 12',
-    price: '₹48,000',
-    location: 'Rajasthan',
-    rating: 4.9,
-    image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=2070',
-    highlights: ['Palace stays', 'Desert safari', 'Folk performances', 'Fort visits'],
-  },
-  {
-    title: 'Himachal Mountain Escape',
+    title: 'Himachal – Shimla & Manali',
     duration: '6 Days / 5 Nights',
-    groupSize: 'Up to 8',
-    price: '₹32,000',
+    price: '₹12,999',
     location: 'Himachal Pradesh',
-    rating: 4.8,
     image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=2070',
-    highlights: ['Shimla & Manali', 'River rafting', 'Paragliding', 'Apple orchards'],
   },
   {
-    title: 'Andaman Island Getaway',
+    title: 'Kashmir – Srinagar, Gulmarg & Pahalgam',
     duration: '6 Days / 5 Nights',
-    groupSize: 'Up to 8',
-    price: '₹45,000',
+    price: '₹14,999',
+    location: 'Kashmir',
+    image: 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=1600&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2FzaG1pcnxlbnwwfHwwfHx8MA%3D%3D',
+  },
+  {
+    title: 'Rajasthan – Jaipur, Jodhpur & Udaipur',
+    duration: '7 Days / 6 Nights',
+    price: '₹17,999',
+    location: 'Rajasthan',
+    image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=2070',
+  },
+  {
+    title: 'Kerala – Munnar, Alleppey & Kochi',
+    duration: '6 Days / 5 Nights',
+    price: '₹17,999',
+    location: 'Kerala',
+    image: 'https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=2069',
+  },
+  {
+    title: 'Uttarakhand – Mussoorie, Rishikesh & Nainital',
+    duration: '6 Days / 5 Nights',
+    price: '₹15,999',
+    location: 'Uttarakhand',
+    image: 'https://images.unsplash.com/photo-1601821139990-9fc929db79ce?w=1600&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dXR0YXJha2hhbmR8ZW58MHx8MHx8fDA%3D',
+  },
+  {
+    title: 'Sikkim – Gangtok & Pelling',
+    duration: '6 Days / 5 Nights',
+    price: '₹21,999',
+    location: 'Sikkim',
+    image: 'https://images.unsplash.com/photo-1573398643956-2b9e6ade3456?w=1600&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2lra2ltfGVufDB8fDB8fHww',
+  },
+  {
+    title: 'Meghalaya – Shillong, Cherrapunji & Dawki',
+    duration: '6 Days / 5 Nights',
+    price: '₹22,999',
+    location: 'Meghalaya',
+    image: 'https://images.unsplash.com/photo-1521437620269-f477f5437820?w=1600&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bWVnaGFsYXlhfGVufDB8fDB8fHww',
+  },
+  {
+    title: 'Ladakh – Leh, Nubra & Pangong',
+    duration: '7 Days / 6 Nights',
+    price: '₹22,999',
+    location: 'Ladakh',
+    image: 'https://images.unsplash.com/photo-1602513792193-1c42f9511bef?q=80&w=2070',
+  },
+  {
+    title: 'Andaman – Port Blair, Havelock & Neil',
+    duration: '6 Days / 5 Nights',
+    price: '₹22,999',
     location: 'Andaman & Nicobar',
-    rating: 4.7,
     image: 'https://images.unsplash.com/photo-1544550581-5f7ceaf7f1b2?q=80&w=2070',
-    highlights: ['Scuba diving', 'Sea walking', 'Cellular Jail', 'Havelock beach'],
+  },
+  {
+    title: 'Gujarat – Rann of Kutch, Dwarka & Somnath',
+    duration: '6 Days / 5 Nights',
+    price: '₹15,999',
+    location: 'Gujarat',
+    image: 'https://plus.unsplash.com/premium_photo-1697730467431-323d86486a4c?w=1600&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGd1anJhdHxlbnwwfHwwfHx8MA%3D%3D',
+  },
+  {
+    title: 'Odisha – Bhubaneswar, Puri & Konark',
+    duration: '6 Days / 5 Nights',
+    price: '₹16,999',
+    location: 'Odisha',
+    image: 'https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?w=1600&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b2Rpc2hhfGVufDB8fDB8fHww',
+  },
+  {
+    title: 'Arunachal Pradesh – Tawang',
+    duration: '7 Days / 6 Nights',
+    price: '₹21,999',
+    location: 'Arunachal Pradesh',
+    image: 'https://images.unsplash.com/photo-1597074866923-dc0589150358?w=1600&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YXJ1bmFjaGFsJTIwcHJhZGVzaHxlbnwwfHwwfHx8MA%3D%3D',
+  },
+  {
+    title: 'Madhya Pradesh – Khajuraho, Orchha & Jabalpur',
+    duration: '6 Days / 5 Nights',
+    price: '₹16,999',
+    location: 'Madhya Pradesh',
+    image: 'https://images.unsplash.com/photo-1606298855672-3efb63017be8?w=1600&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFkaHlhJTIwcHJhZGVzaHxlbnwwfHwwfHx8MA%3D%3D',
+  },
+  {
+    title: 'Uttar Pradesh – Agra, Mathura & Varanasi',
+    duration: '6 Days / 5 Nights',
+    price: '₹15,999',
+    location: 'Uttar Pradesh',
+    image: 'https://images.unsplash.com/photo-1756454487537-1fa7ad135349?w=1600&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hdGh1cmF8ZW58MHx8MHx8fDA%3D',
   },
 ];
 
@@ -101,9 +145,11 @@ export default function DomesticPackages() {
                     style={{ backgroundImage: `url('${pkg.image}')` }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute top-3 right-3 flex items-center gap-1 rounded-[4px] bg-white/95 px-3 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm">
-                    <Star className="h-3 w-3 fill-amber-400 text-amber-400" /> {pkg.rating}
-                  </div>
+                  {pkg.rating && (
+                    <div className="absolute top-3 right-3 flex items-center gap-1 rounded-[4px] bg-white/95 px-3 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm">
+                      <Star className="h-3 w-3 fill-amber-400 text-amber-400" /> {pkg.rating}
+                    </div>
+                  )}
                   <div className="absolute bottom-3 left-3 flex items-center gap-1 text-xs text-white/80 bg-black/40 rounded-[4px] px-3 py-1 backdrop-blur-sm">
                     <MapPin className="h-3 w-3" /> {pkg.location}
                   </div>
@@ -112,16 +158,20 @@ export default function DomesticPackages() {
                   <h3 className="font-display text-lg font-bold text-white mb-2">{pkg.title}</h3>
                   <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
                     <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> {pkg.duration}</span>
-                    <span className="flex items-center gap-1"><Users className="h-3 w-3" /> {pkg.groupSize}</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {pkg.highlights.slice(0, 3).map((h) => (
-                      <span key={h} className="rounded-[4px] bg-white/10 px-2.5 py-0.5 text-xs text-white/70">{h}</span>
-                    ))}
-                    {pkg.highlights.length > 3 && (
-                      <span className="rounded-[4px] bg-white/10 px-2.5 py-0.5 text-xs text-white/70">+{pkg.highlights.length - 3} more</span>
+                    {pkg.groupSize && (
+                      <span className="flex items-center gap-1"><Users className="h-3 w-3" /> {pkg.groupSize}</span>
                     )}
                   </div>
+                  {pkg.highlights && (
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {pkg.highlights.slice(0, 3).map((h) => (
+                        <span key={h} className="rounded-[4px] bg-white/10 px-2.5 py-0.5 text-xs text-white/70">{h}</span>
+                      ))}
+                      {pkg.highlights.length > 3 && (
+                        <span className="rounded-[4px] bg-white/10 px-2.5 py-0.5 text-xs text-white/70">+{pkg.highlights.length - 3} more</span>
+                      )}
+                    </div>
+                  )}
                   <div className="flex items-center justify-between pt-3 border-t border-white/10">
                     <span className="text-lg font-bold text-white">{pkg.price}<span className="text-xs text-muted-foreground font-normal">/person</span></span>
                     <button className="flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary/80 transition-colors">

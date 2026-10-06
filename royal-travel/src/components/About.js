@@ -27,7 +27,7 @@ export default function About() {
               designing bespoke itineraries, we ensure every journey is seamless and memorable.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              With offices in India, Dubai, and London, our team of 100+ travel professionals
+              With our office in New Delhi, our team of 100+ travel professionals
               brings local expertise and global standards to every trip we design.
             </p>
           </div>

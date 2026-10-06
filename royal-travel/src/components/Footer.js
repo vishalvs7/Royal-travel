@@ -15,6 +15,7 @@ const footerLinks = {
   Packages: [
     { name: 'International Packages', href: '/packages/international' },
     { name: 'Domestic Packages', href: '/packages/domestic' },
+    { name: 'Pilgrimage Packages', href: '/packages/pilgrimage' },
     { name: 'Custom Itineraries', href: '#contact' },
   ],
   Support: [

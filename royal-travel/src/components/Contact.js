@@ -6,11 +6,35 @@ import { Send, Phone, Mail, MapPin, Loader2 } from 'lucide-react';
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+
     setLoading(true);
-    setTimeout(() => setLoading(false), 1500);
+    setStatus(null);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...data, source: 'Contact Page' }),
+      });
+      const result = await res.json().catch(() => ({}));
+
+      if (res.ok && result.ok) {
+        form.reset();
+        setStatus({ type: 'success', text: 'Thanks! Your message has been sent — we will get back to you shortly.' });
+      } else {
+        setStatus({ type: 'error', text: result.error || 'Something went wrong. Please try again.' });
+      }
+    } catch {
+      setStatus({ type: 'error', text: 'Network error. Please try again.' });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -33,8 +57,34 @@ export default function Contact() {
                 <Phone className="h-5 w-5 text-secondary" />
               </div>
               <div>
-                <p className="font-semibold text-white mb-1">Phone</p>
-                <p className="text-muted-foreground">+91 99999 99999</p>
+                <p className="font-semibold text-white mb-1">Contact</p>
+                <p className="text-muted-foreground">
+                  <a href="tel:01141666677" className="hover:text-white transition-colors">011-41666677</a>
+                  {' , '}
+                  <a href="tel:+919899010227" className="hover:text-white transition-colors">+91 98990 10227</a>
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="h-10 w-10 rounded-[4px] bg-secondary/20 flex items-center justify-center shrink-0">
+                <Phone className="h-5 w-5 text-secondary" />
+              </div>
+              <div>
+                <p className="font-semibold text-white mb-1">Manager</p>
+                <p className="text-muted-foreground">
+                  <a href="tel:+919899308473" className="hover:text-white transition-colors">+91 98993 08473</a>
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="h-10 w-10 rounded-[4px] bg-secondary/20 flex items-center justify-center shrink-0">
+                <Phone className="h-5 w-5 text-secondary" />
+              </div>
+              <div>
+                <p className="font-semibold text-white mb-1">Director</p>
+                <p className="text-muted-foreground">
+                  <a href="tel:+919811216599" className="hover:text-white transition-colors">+91 98112 16599</a>
+                </p>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -43,7 +93,9 @@ export default function Contact() {
               </div>
               <div>
                 <p className="font-semibold text-white mb-1">Email</p>
-                <p className="text-muted-foreground">info@royaltravel.com</p>
+                <p className="text-muted-foreground break-all">
+                  <a href="mailto:royaltravel111@gmail.com" className="hover:text-white transition-colors">royaltravel111@gmail.com</a>
+                </p>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -52,7 +104,9 @@ export default function Contact() {
               </div>
               <div>
                 <p className="font-semibold text-white mb-1">Office</p>
-                <p className="text-muted-foreground">Mumbai, India | Dubai, UAE | London, UK</p>
+                <p className="text-muted-foreground">
+                  C-125, Ground Floor, Dayanand Colony, Lajpat Nagar-IV, New Delhi - 110024
+                </p>
               </div>
             </div>
           </div>
@@ -65,12 +119,14 @@ export default function Contact() {
             <div className="grid sm:grid-cols-2 gap-4">
               <input
                 type="text"
+                name="name"
                 placeholder="Your Name"
                 required
                 className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Your Email"
                 required
                 className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
@@ -78,10 +134,14 @@ export default function Contact() {
             </div>
             <input
               type="text"
+              name="phone"
               placeholder="Phone Number"
               className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
             />
-            <select className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
+            <select
+              name="interest"
+              className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            >
               <option value="">I&apos;m interested in...</option>
               <option>International Packages</option>
               <option>Domestic Packages</option>
@@ -90,6 +150,7 @@ export default function Contact() {
             </select>
             <textarea
               rows={4}
+              name="message"
               placeholder="Tell us about your dream trip..."
               className="w-full rounded-[4px] border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
             />
@@ -101,6 +162,14 @@ export default function Contact() {
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
               {loading ? 'Sending...' : 'Send Message'}
             </button>
+            {status && (
+              <p
+                role="status"
+                className={`text-sm ${status.type === 'success' ? 'text-green-400' : 'text-red-400'}`}
+              >
+                {status.text}
+              </p>
+            )}
           </motion.form>
         </div>
       </div>

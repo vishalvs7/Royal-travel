@@ -13,6 +13,7 @@ const navLinks = [
     dropdown: [
       { name: 'International', href: '/packages/international' },
       { name: 'Domestic', href: '/packages/domestic' },
+      { name: 'Pilgrimage', href: '/packages/pilgrimage' },
     ],
   },
   { name: 'Destinations', href: '#destinations' },
@@ -71,7 +72,7 @@ export default function Navbar() {
         </div>
 
         <a
-          href="tel:+919999999999"
+          href="tel:+919899010227"
           className="ml-3 flex items-center gap-2 rounded-[4px] bg-secondary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-secondary/90 shadow-lg shadow-secondary/30"
         >
           <Phone className="h-4 w-4" /> Call Now
@@ -124,7 +125,7 @@ export default function Navbar() {
               )
             )}
             <a
-              href="tel:+919999999999"
+              href="tel:+919899010227"
               className="mt-2 flex items-center justify-center gap-2 rounded-[4px] bg-secondary px-5 py-3 text-sm font-semibold text-white"
             >
               <Phone className="h-4 w-4" /> Call Now
