@@ -70,19 +70,10 @@ export default function Contact() {
                 <Phone className="h-5 w-5 text-secondary" />
               </div>
               <div>
-                <p className="font-semibold text-white mb-1">Manager</p>
+                <p className="font-semibold text-white mb-1">24/7 Support</p>
                 <p className="text-muted-foreground">
                   <a href="tel:+919899308473" className="hover:text-white transition-colors">+91 98993 08473</a>
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="h-10 w-10 rounded-[4px] bg-secondary/20 flex items-center justify-center shrink-0">
-                <Phone className="h-5 w-5 text-secondary" />
-              </div>
-              <div>
-                <p className="font-semibold text-white mb-1">Director</p>
-                <p className="text-muted-foreground">
+                  {' , '}
                   <a href="tel:+919811216599" className="hover:text-white transition-colors">+91 98112 16599</a>
                 </p>
               </div>

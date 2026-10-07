@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Plane, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const footerLinks = {
@@ -38,7 +39,13 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Plane className="h-6 w-6 text-primary" />
+              <Image
+                src="/Royal_icon-removebg-preview.png"
+                alt="Royal Travel"
+                width={605}
+                height={412}
+                className="h-6 w-auto"
+              />
               <span className="font-display text-xl font-bold text-white">Royal Travel</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">

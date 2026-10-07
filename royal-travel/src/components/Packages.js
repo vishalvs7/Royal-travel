@@ -6,42 +6,40 @@ import Link from 'next/link';
 
 const packages = [
   {
-    title: 'Swiss Alpine Dream',
-    type: 'International',
-    duration: '7 Days / 6 Nights',
-    groupSize: 'Up to 12',
-    price: '₹1,85,000',
-    image: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=2070',
-    href: '/packages/international',
-  },
-  {
-    title: 'Kerala Backwaters Retreat',
-    type: 'Domestic',
-    duration: '5 Days / 4 Nights',
-    groupSize: 'Up to 8',
-    price: '₹35,000',
-    image: 'https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=2069',
-    href: '/packages/domestic',
-  },
-  {
-    title: 'Dubai Luxury Escape',
+    title: 'Mauritius',
     type: 'International',
     duration: '6 Days / 5 Nights',
-    groupSize: 'Up to 10',
-    price: '₹1,25,000',
-    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070',
-    href: '/packages/international',
+    price: '₹39,999',
+    image: 'https://images.unsplash.com/photo-1513415277900-a62401e19be4?w=1600&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWF1cml0aXVzfGVufDB8fDB8fHww',
   },
   {
-    title: 'Ladakh Adventure',
-    type: 'Domestic',
+    title: 'Europe – Paris & Switzerland',
+    type: 'International',
     duration: '8 Days / 7 Nights',
-    groupSize: 'Up to 10',
-    price: '₹55,000',
-    image: 'https://images.unsplash.com/photo-1602513792193-1c42f9511bef?q=80&w=2070',
-    href: '/packages/domestic',
+    price: '₹69,999',
+    image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=2020',
+  },
+  {
+    title: 'Uttarakhand – Mussoorie, Rishikesh & Nainital',
+    type: 'Domestic',
+    duration: '6 Days / 5 Nights',
+    price: '₹15,999',
+    image: 'https://images.unsplash.com/photo-1601821139990-9fc929db79ce?w=1600&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dXR0YXJha2hhbmR8ZW58MHx8MHx8fDA%3D',
+  },
+  {
+    title: 'Char Dham Yatra',
+    type: 'Pilgrimage',
+    duration: '11 Days / 10 Nights',
+    price: '₹39,999',
+    image: 'https://images.unsplash.com/photo-1634109282980-8d866598bc8a?w=1600&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2hhcmRoYW18ZW58MHx8MHx8fDA%3D',
   },
 ];
+
+const badgeStyles = {
+  International: 'bg-secondary text-white',
+  Domestic: 'bg-primary text-primary-foreground',
+  Pilgrimage: 'bg-accent text-accent-foreground',
+};
 
 export default function Packages() {
   return (
@@ -72,7 +70,7 @@ export default function Packages() {
                   style={{ backgroundImage: `url('${pkg.image}')` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <span className={`absolute top-3 right-3 rounded-[4px] px-3 py-1 text-xs font-semibold backdrop-blur-sm ${pkg.type === 'International' ? 'bg-secondary text-white' : 'bg-primary text-primary-foreground'}`}>
+                <span className={`absolute top-3 right-3 rounded-[4px] px-3 py-1 text-xs font-semibold backdrop-blur-sm ${badgeStyles[pkg.type]}`}>
                   {pkg.type}
                 </span>
               </div>
@@ -80,13 +78,20 @@ export default function Packages() {
                 <h3 className="font-display text-lg font-bold text-white mb-3">{pkg.title}</h3>
                 <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
                   <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> {pkg.duration}</span>
-                  <span className="flex items-center gap-1"><Users className="h-3 w-3" /> {pkg.groupSize}</span>
+                  {pkg.groupSize && (
+                    <span className="flex items-center gap-1"><Users className="h-3 w-3" /> {pkg.groupSize}</span>
+                  )}
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-bold text-white">{pkg.price}<span className="text-xs text-muted-foreground font-normal">/person</span></span>
-                  <Link href={pkg.href} className="flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary/80 transition-colors">
+                  <a
+                    href={`https://api.whatsapp.com/send/?phone=919899010227&text=${encodeURIComponent(`Hi! I want to enquire about the ${pkg.title} package (${pkg.duration} at ${pkg.price}/person). Please share the details.`)}&type=phone_number&app_absent=0`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+                  >
                     Details <ArrowRight className="h-3 w-3" />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </motion.div>

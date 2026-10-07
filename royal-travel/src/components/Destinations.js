@@ -43,7 +43,7 @@ export default function Destinations() {
           {destinations.map((t, i) => (
             <motion.a
               key={t.name}
-              href={`https://api.whatsapp.com/send/?phone=919811216599&text=${encodeURIComponent(`Hi! I want to enquire about ${t.name} tour package`)}&type=phone_number&app_absent=0`}
+              href={`https://api.whatsapp.com/send/?phone=919899010227&text=${encodeURIComponent(`Hi! I want to enquire about ${t.name} tour package`)}&type=phone_number&app_absent=0`}
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 40, scale: 0.8 }}
@@ -77,7 +77,7 @@ export default function Destinations() {
         <div className="mt-14 text-center">
           <p className="mb-4 text-sm text-muted-foreground">Tap any destination to chat with us instantly on WhatsApp</p>
           <a
-            href="https://api.whatsapp.com/send/?phone=919811216599&text=Hi!%20I%20want%20to%20enquire%20about%20travel%20packages&type=phone_number&app_absent=0"
+            href="https://api.whatsapp.com/send/?phone=919899010227&text=Hi!%20I%20want%20to%20enquire%20about%20travel%20packages&type=phone_number&app_absent=0"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-[4px] bg-gradient-to-r from-[#1b2a4a] to-[#2d4a7a] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-900/20 transition-all hover:scale-105 hover:shadow-xl hover:shadow-blue-900/30"

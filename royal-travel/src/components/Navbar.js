@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
@@ -32,8 +33,18 @@ export default function Navbar() {
   return (
     <nav className="fixed inset-x-0 top-0 z-50 bg-[hsl(var(--background)/.9)] backdrop-blur-xl shadow-[0_1px_15px_-3px_rgba(0,0,0,0.4)] border-b border-white/5">
       <div className="container mx-auto flex h-16 sm:h-20 items-center justify-between px-4 sm:px-8">
-        <Link href="/" className="font-display text-2xl font-black text-white drop-shadow-lg tracking-tight">
-          Royal Travel
+        <Link href="/" className="flex items-center gap-2 sm:gap-3">
+          <Image
+            src="/Royal_icon-removebg-preview.png"
+            alt="Royal Travel"
+            width={605}
+            height={412}
+            priority
+            className="h-[29px] sm:h-[38px] w-auto"
+          />
+          <span className="font-display text-xl sm:text-2xl font-black text-white drop-shadow-lg tracking-tight whitespace-nowrap">
+            Royal Travel
+          </span>
         </Link>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-center">
@@ -78,7 +89,7 @@ export default function Navbar() {
 
         <a
           href="tel:+919899010227"
-          className="ml-3 flex items-center gap-2 rounded-[4px] bg-secondary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-secondary/90 shadow-lg shadow-secondary/30"
+          className="hidden sm:flex ml-3 items-center gap-2 rounded-[4px] bg-secondary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-secondary/90 shadow-lg shadow-secondary/30"
         >
           <Phone className="h-4 w-4" /> Call Now
         </a>

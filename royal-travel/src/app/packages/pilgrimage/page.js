@@ -115,9 +115,14 @@ export default function PilgrimagePackages() {
                       {pkg.price}
                       <span className="text-xs text-muted-foreground font-normal">/person</span>
                     </span>
-                    <button className="flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary/80 transition-colors">
+                    <a
+                      href={`https://api.whatsapp.com/send/?phone=919899010227&text=${encodeURIComponent(`Hi! I want to enquire about the ${pkg.title} package (${pkg.duration} at ${pkg.price}/person). Please share the details.`)}&type=phone_number&app_absent=0`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+                    >
                       Enquire Now <ArrowRight className="h-3 w-3" />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </motion.div>
